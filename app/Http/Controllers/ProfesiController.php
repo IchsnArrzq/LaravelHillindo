@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Prefix;
+use App\Models\Profesi;
+use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class PrefixControlller extends Controller
+class ProfesiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +17,8 @@ class PrefixControlller extends Controller
      */
     public function index()
     {
-        $prefixes = Prefix::latest()->get();
-        return view('admin.prefix.index',compact('prefixes'));
+        $profesis = Profesi::get();
+        return view('admin.profesi.index', compact('profesis'));
     }
 
     /**
@@ -25,8 +28,11 @@ class PrefixControlller extends Controller
      */
     public function create()
     {
-        $prefix = new Prefix();
-        return view('admin.prefix.create',compact('prefix'));
+        $profesi = new Profesi();
+        $clients = User::whereHas('roles', function ($query) {
+            return $query->where('name', 'client');
+        })->get();
+        return view('admin.profesi.create', compact('profesi', 'clients'));
     }
 
     /**
@@ -37,7 +43,26 @@ class PrefixControlller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $attr = $this->validate($request, [
+            'user_id' => 'required|exists:users,id',
+            'name' => 'required',
+            'price_low' => 'required|integer',
+            'price_medium' => 'required|integer',
+            'price_high' => 'required|integer',
+            'margin' => 'required|integer',
+        ]);
+        DB::beginTransaction();
+        try{
+            Profesi::create($attr);
+            
+            DB::commit();
+            toast('success','success');
+            return back();
+        }catch(Exception $err){
+            DB::rollBack();
+            toast($err->getMessage(),'error');
+            return back();
+        }
     }
 
     /**
