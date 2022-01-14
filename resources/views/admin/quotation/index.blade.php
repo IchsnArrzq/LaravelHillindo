@@ -2,24 +2,25 @@
 
 @section('content')
 <div class="container">
-    <div class="d-flex justify-content-center">
-        <div class="col-md-10">
+    <div class="row">
+        <div class="col-md-8">
             <div class="card shadow">
                 <div class="card-body">
-                    <div class="d-flex justify-content-end">
-                        <a class="btn btn-sm btn-primary mb-2" href="{{ route('admin.profesi.create') }}">create</a>
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ url()->previous() }}" class="btn btn-sm btn-outline-info mb-2">back</a>
+                        <a class="btn btn-sm btn-outline-primary mb-2" href="{{ route('client.quotation.show',$profesi->id) }}">create</a>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-hover table-bordered border text-center" id="datatable">
                             <thead>
                                 <tr>
                                     <th>no</th>
-                                    <th>user</th>
-                                    <th>name</th>
-                                    <th>price low</th>
-                                    <th>price medium</th>
-                                    <th>price high</th>
-                                    <th>margin</th>
+                                    <th>profesi id</th>
+                                    <th>quot number</th>
+                                    <th>tgl buat</th>
+                                    <th>tgl disetujui</th>
+                                    <th>total price</th>
+                                    <th>is approve</th>
                                     <th>action</th>
                                 </tr>
                             </thead>
@@ -32,40 +33,41 @@
         </div>
     </div>
 </div>
+<input type="hidden" id="profesi_id" value="{{ $profesi->id }}">
 @stop
 @push('script')
 <script>
     $('#datatable').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '/admin/profesi',
+        ajax: `/client/profesi/${$('#profesi_id').val()}`,
         columns: [{
                 data: 'DT_RowIndex',
                 name: 'DT_RowIndex'
             },
             {
-                data: 'user_id',
-                name: 'user_id'
+                data: 'profesi_id',
+                name: 'profesi_id'
             },
             {
-                data: 'name',
-                name: 'name'
+                data: 'quot_number',
+                name: 'quot_number'
             },
             {
-                data: 'price_low',
-                name: 'price_low'
+                data: 'tgl_buat',
+                name: 'tgl_buat'
             },
             {
-                data: 'price_medium',
-                name: 'price_medium'
+                data: 'tgl_disetujui',
+                name: 'tgl_disetujui'
             },
             {
-                data: 'price_high',
-                name: 'price_high'
+                data: 'total_price',
+                name: 'total_price'
             },
             {
-                data: 'margin',
-                name: 'margin'
+                data: 'is_approve',
+                name: 'is_approve'
             },
             {
                 data: 'action',

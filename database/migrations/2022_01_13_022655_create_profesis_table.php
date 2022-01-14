@@ -20,7 +20,7 @@ class CreateProfesisTable extends Migration
             $table->bigInteger('price_low');
             $table->bigInteger('price_medium');
             $table->bigInteger('price_high');
-            $table->integer('margin');
+            $table->bigInteger('margin');
             $table->timestamps();
         });
     }

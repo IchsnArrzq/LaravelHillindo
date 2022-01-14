@@ -1,13 +1,9 @@
 <div class="row">
     <div class="col-md-4">
         <div class="form-group">
-            <label for="user_id" class="form-label">user id</label>
-            <select name="user_id" id="user_id" class="form-control @error('user_id') is-invalid @enderror">
-                @foreach($clients as $client)
-                <option @if($client->id == $client->id) selected @endif value="{{ $client->id }}">{{ $client->name }}</option>
-                @endforeach
-            </select>
-            @error('user_id')
+            <label for="profesi_id" class="form-label">profesi id</label>
+            <input name="profesi_id" id="profesi_id" value="{{ $profesi->id }}" class="form-control @error('profesi_id') is-invalid @enderror">
+            @error('profesi_id')
             <span class="invalid-feedback">
                 {{ $message }}
             </span>
@@ -17,7 +13,7 @@
     <div class="col-md-4">
         <div class="form-group">
             <label for="name" class="form-label">name</label>
-            <input name="name" id="name" value="{{ $profesi->name ?? old('name') }}" type="text" class="form-control @error('name') is-invalid @enderror">
+            <input name="name" id="name" value="{{ $quotation->name ?? old('name') }}" type="text" class="form-control @error('name') is-invalid @enderror">
             @error('name')
             <span class="invalid-feedback">
                 {{ $message }}
@@ -28,7 +24,7 @@
     <div class="col-md-4">
         <div class="form-group">
             <label for="price_low" class="form-label">price low</label>
-            <input name="price_low" id="price_low" onkeypress='return isNumberKey(event)' oninput="this.value = formatter(this.value)" value="{{ $profesi->price_low ?? number_format(old('price_low')) }}" type="text" class="form-control @error('price_low') is-invalid @enderror">
+            <input name="price_low" id="price_low" onkeypress='return isNumberKey(event)' oninput="this.value = formatter(this.value)" value="{{ $quotation->price_low ?? number_format(old('price_low')) }}" type="text" class="form-control @error('price_low') is-invalid @enderror">
             @error('price_low')
             <span class="invalid-feedback">
                 {{ $message }}
@@ -39,7 +35,7 @@
     <div class="col-md-4">
         <div class="form-group">
             <label for="price_medium" class="form-label">price medium</label>
-            <input name="price_medium" id="price_medium" onkeypress='return isNumberKey(event)' oninput="this.value = formatter(this.value)" value="{{ $profesi->price_medium ?? number_format(old('price_medium')) }}" type="text" class="form-control @error('price_medium') is-invalid @enderror">
+            <input name="price_medium" id="price_medium" onkeypress='return isNumberKey(event)' oninput="this.value = formatter(this.value)" value="{{ $quotation->price_medium ?? number_format(old('price_medium')) }}" type="text" class="form-control @error('price_medium') is-invalid @enderror">
             @error('price_medium')
             <span class="invalid-feedback">
                 {{ $message }}
@@ -50,7 +46,7 @@
     <div class="col-md-4">
         <div class="form-group">
             <label for="price_high" class="form-label">price high</label>
-            <input name="price_high" id="price_high" onkeypress='return isNumberKey(event)' oninput="this.value = formatter(this.value)" value="{{ $profesi->price_high ?? number_format(old('price_high')) }}" type="text" class="form-control @error('price_high') is-invalid @enderror">
+            <input name="price_high" id="price_high" onkeypress='return isNumberKey(event)' oninput="this.value = formatter(this.value)" value="{{ $quotation->price_high ?? number_format(old('price_high')) }}" type="text" class="form-control @error('price_high') is-invalid @enderror">
             @error('price_high')
             <span class="invalid-feedback">
                 {{ $message }}
@@ -61,7 +57,7 @@
     <div class="col-md-4">
         <div class="form-group">
             <label for="margin" class="form-label">margin</label>
-            <input name="margin" id="margin" onkeypress='return isNumberKey(event)' oninput="this.value = formatter(this.value)" value="{{ $profesi->margin ?? number_format(old('margin')) }}" type="text" class="form-control @error('margin') is-invalid @enderror">
+            <input name="margin" id="margin" onkeypress='return isNumberKey(event)' oninput="this.value = formatter(this.value)" value="{{ $quotation->margin ?? old('margin') }}" type="text" class="form-control @error('margin') is-invalid @enderror">
             @error('margin')
             <span class="invalid-feedback">
                 {{ $message }}

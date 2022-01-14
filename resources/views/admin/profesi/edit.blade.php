@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="d-flex justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-body">
                     <form action="{{ route('admin.profesi.update',$profesi->id) }}" id="form" method="post">
@@ -22,8 +22,18 @@
 @stop
 @push('script')
 <script>
+    $(document).ready(function(){
+        $('#price_low').val(formatter($('#price_low').val()))
+        $('#price_medium').val(formatter($('#price_medium').val()))
+        $('#price_high').val(formatter($('#price_high').val()))
+        $('#margin').val(formatter($('#margin').val()))
+    });
     $('#submit').click(function(e) {
         e.preventDefault()
+        $('#price_low').val($('#price_low').val().replaceAll(',', ''))
+        $('#price_medium').val($('#price_medium').val().replaceAll(',', ''))
+        $('#price_high').val($('#price_high').val().replaceAll(',', ''))
+        $('#margin').val($('#margin').val().replaceAll(',', ''))
         $('#form').submit()
     });
 </script>

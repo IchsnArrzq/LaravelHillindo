@@ -6,9 +6,6 @@
         <div class="col-md-10">
             <div class="card shadow">
                 <div class="card-body">
-                    <div class="d-flex justify-content-end">
-                        <a class="btn btn-sm btn-primary mb-2" href="{{ route('admin.profesi.create') }}">create</a>
-                    </div>
                     <div class="table-responsive">
                         <table class="table table-hover table-bordered border text-center" id="datatable">
                             <thead>
@@ -38,7 +35,7 @@
     $('#datatable').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '/admin/profesi',
+        ajax: '/client/profesi',
         columns: [{
                 data: 'DT_RowIndex',
                 name: 'DT_RowIndex'
