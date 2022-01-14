@@ -46,6 +46,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.profesi.index') }}">profesi</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.quotation.index') }}">quotation</a>
+                        </li>
                         @endrole
                         @role('client')
                         <li class="nav-item">

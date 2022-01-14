@@ -57,7 +57,7 @@
     <div class="col-md-4">
         <div class="form-group">
             <label for="margin" class="form-label">margin</label>
-            <input name="margin" id="margin" onkeypress='return isNumberKey(event)' oninput="this.value = formatter(this.value)" value="{{ $quotation->margin ?? old('margin') }}" type="text" class="form-control @error('margin') is-invalid @enderror">
+            <input name="margin" id="margin" onkeypress='return isNumberKey(event)' oninput="this.value = formatter(this.value)" value="{{ $quotation->margin ?? number_format(old('margin')) }}" type="text" class="form-control @error('margin') is-invalid @enderror">
             @error('margin')
             <span class="invalid-feedback">
                 {{ $message }}

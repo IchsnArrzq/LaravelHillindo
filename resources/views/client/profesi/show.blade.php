@@ -37,30 +37,33 @@
                     <h3>
                         {{ $profesi->name }}
                     </h3>
-                    <table class="table">
-                        <tr>
-                            <th>
-                                price_low
-                            </th>
-                            <th>
-                                price_medium
-                            </th>
-                            <th>
-                                price_high
-                            </th>
-                        </tr>
-                        <tr>
-                            <td>
-                                {{ number_format($profesi->price_low) }}
-                            </td>
-                            <td>
-                                {{ number_format($profesi->price_medium) }}
-                            </td>
-                            <td>
-                                {{ number_format($profesi->price_high) }}
-                            </td>
-                        </tr>
-                    </table>
+                    <div class="table-responsive">
+
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    price_low
+                                </th>
+                                <th>
+                                    price_medium
+                                </th>
+                                <th>
+                                    price_high
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ number_format($profesi->price_low) }}
+                                </td>
+                                <td>
+                                    {{ number_format($profesi->price_medium) }}
+                                </td>
+                                <td>
+                                    {{ number_format($profesi->price_high) }}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                     <p>
                         margin : {{ $profesi->margin }}
                     </p>

@@ -32,6 +32,9 @@ class ProfesiController extends Controller
                 ->editColumn('price_high', function ($qr) {
                     return number_format($qr->price_high);
                 })
+                ->editColumn('margin', function ($qr) {
+                    return number_format($qr->margin);
+                })
                 ->editColumn('action', function ($qr) {
                     return ("
                     <div class='d-flex'>
