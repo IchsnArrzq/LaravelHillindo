@@ -12,9 +12,9 @@
     </div>
     <div class="col-md-4">
         <div class="form-group">
-            <label for="name" class="form-label">name</label>
-            <input name="name" id="name" value="{{ $quotation->name ?? old('name') }}" type="text" class="form-control @error('name') is-invalid @enderror">
-            @error('name')
+            <label for="quot_number" class="form-label">quot number</label>
+            <input name="quot_number" id="quot_number" value="{{ $quotation->quot_number ?? old('quot_number') }}" type="text" class="form-control @error('quot_number') is-invalid @enderror">
+            @error('quot_number')
             <span class="invalid-feedback">
                 {{ $message }}
             </span>
@@ -23,9 +23,9 @@
     </div>
     <div class="col-md-4">
         <div class="form-group">
-            <label for="price_low" class="form-label">price low</label>
-            <input name="price_low" id="price_low" onkeypress='return isNumberKey(event)' oninput="this.value = formatter(this.value)" value="{{ $quotation->price_low ?? number_format(old('price_low')) }}" type="text" class="form-control @error('price_low') is-invalid @enderror">
-            @error('price_low')
+            <label for="qty" class="form-label">qty</label>
+            <input name="qty" id="qty" value="{{ $quotation->qty ?? old('qty') }}" type="text" class="form-control @error('qty') is-invalid @enderror">
+            @error('qty')
             <span class="invalid-feedback">
                 {{ $message }}
             </span>
@@ -34,9 +34,9 @@
     </div>
     <div class="col-md-4">
         <div class="form-group">
-            <label for="price_medium" class="form-label">price medium</label>
-            <input name="price_medium" id="price_medium" onkeypress='return isNumberKey(event)' oninput="this.value = formatter(this.value)" value="{{ $quotation->price_medium ?? number_format(old('price_medium')) }}" type="text" class="form-control @error('price_medium') is-invalid @enderror">
-            @error('price_medium')
+            <label for="tgl_buat" class="form-label">tanggal buat</label>
+            <input name="tgl_buat" id="tgl_buat" onkeypress='return isNumberKey(event)' oninput="this.value = formatter(this.value)" value="{{ $quotation->tgl_buat ?? number_format(old('tgl_buat')) }}" type="text" class="form-control @error('tgl_buat') is-invalid @enderror">
+            @error('tgl_buat')
             <span class="invalid-feedback">
                 {{ $message }}
             </span>
@@ -45,20 +45,9 @@
     </div>
     <div class="col-md-4">
         <div class="form-group">
-            <label for="price_high" class="form-label">price high</label>
-            <input name="price_high" id="price_high" onkeypress='return isNumberKey(event)' oninput="this.value = formatter(this.value)" value="{{ $quotation->price_high ?? number_format(old('price_high')) }}" type="text" class="form-control @error('price_high') is-invalid @enderror">
-            @error('price_high')
-            <span class="invalid-feedback">
-                {{ $message }}
-            </span>
-            @enderror
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="form-group">
-            <label for="margin" class="form-label">margin</label>
-            <input name="margin" id="margin" onkeypress='return isNumberKey(event)' oninput="this.value = formatter(this.value)" value="{{ $quotation->margin ?? number_format(old('margin')) }}" type="text" class="form-control @error('margin') is-invalid @enderror">
-            @error('margin')
+            <label for="total_price" class="form-label">total price</label>
+            <input name="total_price" id="total_price" onkeypress='return isNumberKey(event)' oninput="this.value = formatter(this.value)" value="{{ $quotation->total_price ?? number_format(old('total_price')) }}" type="text" class="form-control @error('total_price') is-invalid @enderror">
+            @error('total_price')
             <span class="invalid-feedback">
                 {{ $message }}
             </span>

@@ -17,6 +17,7 @@ class CreateQuotationsTable extends Migration
             $table->id();
             $table->foreignId('profesi_id')->constrained('profesis');
             $table->string('quot_number')->unique();
+            $table->integer('qty');
             $table->date('tgl_buat');
             $table->date('tgl_disetujui')->nullable();
             $table->bigInteger('total_price');
